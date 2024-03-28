@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:task1/home.dart';
+import 'package:task1/login.dart';
+import 'package:task1/signup.dart';
 import 'package:task1/task.dart';
 
 void main() {
@@ -33,7 +36,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Task(),
+      home: const Login(),
     );
   }
 }

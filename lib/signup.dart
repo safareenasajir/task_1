@@ -47,10 +47,11 @@ class _SignupState extends State<Signup> {
 
   int selectedoptin = 1;
   bool ischecked = false;
+    Datas data = Datas();
 
   @override
   Widget build(BuildContext context) {
-    List list = <String>[
+    List <String> list = [
       'Thiruvananthpuram',
       'Kollam',
       'Alappuzha',
@@ -67,10 +68,8 @@ class _SignupState extends State<Signup> {
       'Kasarkod'
     ];
 
-    String dropdown = list.first;
+    String? dropdown = 'Thiruvananthpuram';
 
-    Datas data = Datas();
-    print('//////Rebuilding');
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
@@ -187,7 +186,22 @@ class _SignupState extends State<Signup> {
                       },
                     ),
                   ),
-                  SizedBox(
+                  DropdownButtonFormField<String>(
+                      value: dropdown,
+                      decoration: InputDecoration(border: OutlineInputBorder()),
+                      // icon: const Icon(Icons.arrow_downward_outlined),
+                      // style: const TextStyle(color: Colors.black),
+                     
+                      items: list
+                          .map((value) => DropdownMenuItem(
+                              value: value, child: Text(value)))
+                          .toList(),
+                           onChanged: (String? value) {
+                        setState(() {
+                          dropdown = value;
+                        });
+                      },),
+                  const SizedBox(
                     height: 20,
                   ),
                   TextFormField(
